@@ -1,0 +1,87 @@
+/* Paleta rosada definida en variables: cambiar un color aquí lo cambia en toda la página */
+:root {
+    --rosa-fondo: #fff0f6;
+    --rosa-claro: #ffd6e7;
+    --rosa-medio: #ff85b3;
+    --rosa-fuerte: #e91e8c;
+    --rosa-oscuro: #8a1550;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, sans-serif;
+    background: linear-gradient(160deg, var(--rosa-fondo), var(--rosa-claro));
+    color: var(--rosa-oscuro);
+    min-height: 100vh;
+}
+
+header {
+    text-align: center;
+    padding: 2rem 1rem 1rem;
+}
+header h1 { margin: 0; font-size: 2.4rem; color: var(--rosa-fuerte); }
+header p  { margin: .3rem 0 0; }
+
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: grid;
+    gap: 1.2rem;
+}
+
+.tarjeta {
+    background: #fff;
+    border: 2px solid var(--rosa-claro);
+    border-radius: 18px;
+    padding: 1.2rem 1.4rem;
+    box-shadow: 0 6px 18px rgba(233, 30, 140, .15);
+}
+.tarjeta h2 { margin-top: 0; }
+.tarjeta small { font-weight: normal; color: var(--rosa-medio); font-size: .75em; }
+
+form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: .7rem;
+}
+
+input {
+    padding: .6rem .8rem;
+    border: 2px solid var(--rosa-claro);
+    border-radius: 12px;
+    font-size: 1rem;
+    color: var(--rosa-oscuro);
+}
+input:focus { outline: none; border-color: var(--rosa-fuerte); }
+
+button {
+    padding: .6rem 1rem;
+    border: none;
+    border-radius: 12px;
+    background: var(--rosa-fuerte);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s, transform .1s;
+}
+button:hover  { background: var(--rosa-oscuro); }
+button:active { transform: scale(.97); }
+
+#mensaje { min-height: 1.4rem; margin-bottom: 0; font-weight: 600; }
+#mensaje.error { color: #c0002f; }
+
+table { width: 100%; border-collapse: collapse; }
+th {
+    background: var(--rosa-medio);
+    color: #fff;
+    padding: .6rem;
+    text-align: left;
+}
+th:first-child { border-top-left-radius: 10px; }
+th:last-child  { border-top-right-radius: 10px; }
+td { padding: .55rem .6rem; border-bottom: 1px solid var(--rosa-claro); }
+tr:nth-child(even) td { background: var(--rosa-fondo); }

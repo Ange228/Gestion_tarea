@@ -1,0 +1,94 @@
+{
+  "info": {
+    "name": "Tienda Rosa",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8080" }
+  ],
+  "item": [
+    {
+      "name": "GET - Listar todos los productos",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/productos"
+      }
+    },
+    {
+      "name": "GET - Filtrar por categoría (Labiales)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/productos?categoria=Labiales",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "productos"],
+          "query": [{ "key": "categoria", "value": "Labiales" }]
+        }
+      }
+    },
+    {
+      "name": "GET - Producto por id (1)",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/productos/1"
+      }
+    },
+    {
+      "name": "GET - Producto inexistente (404)",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/productos/999"
+      }
+    },
+    {
+      "name": "POST - Crear producto",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"Gloss Brillo Fresa\",\n  \"marca\": \"Candy Glow\",\n  \"categoria\": \"Labiales\",\n  \"precio\": 19.90,\n  \"stock\": 50\n}"
+        },
+        "url": "{{baseUrl}}/api/productos"
+      }
+    },
+    {
+      "name": "PUT - Actualizar producto (id 1)",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"Labial Rosa Pétalo Mate\",\n  \"marca\": \"Bloom\",\n  \"categoria\": \"Labiales\",\n  \"precio\": 27.50,\n  \"stock\": 35\n}"
+        },
+        "url": "{{baseUrl}}/api/productos/1"
+      }
+    },
+    {
+      "name": "DELETE - Eliminar producto (id 2)",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/api/productos/2"
+      }
+    },
+    {
+      "name": "DELETE - Producto inexistente (404)",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/api/productos/999"
+      }
+    },
+    {
+      "name": "POST - Datos inválidos (400)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"\",\n  \"marca\": \"Bloom\",\n  \"categoria\": \"Sombras\",\n  \"precio\": -5,\n  \"stock\": 10\n}"
+        },
+        "url": "{{baseUrl}}/api/productos"
+      }
+    }
+  ]
+}
